@@ -1,0 +1,38 @@
+<%- include("partials/header"); %> 
+<div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Sr. No.</th>
+          <th scope="col">Contest Name</th>
+          <th scope="col">Start Time</th>
+          <th scope="col">End Time</th>
+          <th scope="col">Site</th>
+          <th scope="col">Contest Link</th>
+        </tr>
+        </thead>
+          <% for (var i =0; i <articles.length;  i++ ) { %>
+            <tr>
+              <th scope="row"><%= i+1 %> </th>
+              <td><%= articles[i].name %> </td>
+              <td> <%=new Date(articles[i].start_time).toString().substr(4,17).concat(" ","hrs") %> </td>
+              <td><%= new Date(articles[i].end_time).toString().substr(4,17).concat(" ","hrs") %> </td>
+              <td><%=articles[i].site %></td>
+              <td>
+              <% if(articles[i].status=="CODING" ){ %>
+                <center><button onclick="location.href = '<%= articles[i].url %>';" type="submit"
+                    class="btn btn-outline-dark d-btn">Participate Now</button></center>
+            </td>
+            <%} else{%>
+              </center> <button onclick="location.href = '<%= articles[i].url %>';" type="submit"
+                class="btn btn-outline-dark d-btn btn-block">Visit Now</button></center>
+              </td>
+              <%}%>
+            </tr>
+            <% } %>
+        
+      </table>
+      
+    
+  </div>
+<%- include("partials/footer"); %> 

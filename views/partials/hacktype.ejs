@@ -1,0 +1,34 @@
+<div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col" class="ink">Sr. No.</th>
+          <th scope="col" class="ink">Contest Name</th>
+          <th scope="col" class="ink">Start Time</th>
+          <th scope="col" class="ink">End Time</th>
+          <th scope="col" class="ink">Contest Link</th>
+        </tr>
+        </thead>
+          <% for (var i =0; i <articles.length;  i++ ) { %>
+            <tr>
+              <td scope="row" style="color:black"><%= i+1 %> </td>
+              <td style="color:yellow"><%= articles[i].name %> </td>
+              <td style="color:blue"> <%=new Date(articles[i].start_time).toString().substr(4,17).concat(" ","hrs") %> </td>
+              <td style="color:rgb(86, 221, 86)"><%= new Date(articles[i].end_time).toString().substr(4,17).concat(" ","hrs") %> </td>
+              <td>
+              <% if(articles[i].status=="CODING" ){ %>
+                <center><button onclick="location.href = '<%= articles[i].url %>';" type="submit"
+                    class="btn btn-outline-dark d-btn"  style="font-weight:bold;color: white;">Participate Now</button></center>
+            </td>
+            <%} else{%>
+              <center> <button onclick="location.href = '<%= articles[i].url %>';" type="submit"
+                class="btn btn-outline-dark d-btn btn-block"  style="font-weight:bold;color: white;">Visit Now</button></center>
+              </td>
+              <%}%>
+            </tr>
+            <% } %>
+        
+      </table>
+      
+    
+  </div>

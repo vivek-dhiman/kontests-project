@@ -1,0 +1,52 @@
+<div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col" class="ink">Sr. No.</th>
+        <th scope="col" class="ink">Contest Name</th>
+        <th scope="col" class="ink">Start Time</th>
+        <th scope="col" class="ink">Duration</th>
+        <th scope="col" class="ink">Contest Link</th>
+      </tr>
+    </thead><% var c=0;%>
+    <% for (var i=articles.length-1; i >0; i-- ) { %>
+      <% if(articles[i].duration/(3600*24)<=5){ %> 
+      <tr>
+        <td scope="row" style="color:black">
+          <% c++; %><%=c%>
+        </td>
+        <td style="color:yellow">
+          <%= articles[i].name %>
+        </td>
+        <td style="color:blue">
+          <%= new Date(articles[i].start_time).toString().substr(4,17).concat(" ","hrs") %>
+        </td>
+        <td style="color:rgb(86, 221, 86)">
+          <% if((articles[i].duration)/3600>=24){ %>
+            <%= articles[i].duration/(3600*24)  %> days
+              <% }else{ %>
+             <%= Math.floor(articles[i].duration /3600) %>
+             <%if(articles[i].duration/3600<2){ %> hr 
+              <% }else{ %> hrs
+                <% } %>  
+             <% if(articles[i].duration%3600!=0){ %> 
+             <%= (articles[i].duration%3600)/60 %> mins 
+             <% }} %> 
+        </td>
+        <td>
+          <% if(articles[i].status=="CODING" ){ %>
+            <center><button onclick="location.href = '<%= articles[i].url %>';" type="submit"
+                class="btn btn-outline-dark d-btn" style="font-weight:bold;color: white;">Participate Now</button></center>
+        </td>
+        <%} else{%>
+          <center> <button onclick="location.href = '<%= articles[i].url %>';" type="submit"
+            class="btn btn-outline-dark d-btn btn-block" style="font-weight:bold;color: rgb(255, 255, 255);;">Visit Now</button></center>
+          </td>
+          <%}%>
+      </td>
+      <% }} %>
+
+  </table>
+  <h4></h4>
+
+</div>
