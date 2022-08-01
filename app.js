@@ -7,28 +7,28 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.get("/", function (req, res) {
-    var date1=new Date();
-    var time=date1.getHours();
-    var greeting="";
-    if(time>=0&&time<=12)
-    greeting="Morning";
-    else if(time>=12&&time<=16)
-    greeting="Afternoon";
-    else
-    greeting="Evening";
+    // var date1=new Date();
+    // var time=date1.getHours();
+    var greeting="Greetings of the day!";
+    // if(time>=0&&time<=12)
+    // greeting="Morning";
+    // else if(time>=12&&time<=16)
+    // greeting="Afternoon";
+    // else
+    // greeting="Evening";
     res.render('home',{greet:greeting});
 });
 app.get("/about", function (req, res) {
-    var date1=new Date();
-    var time=date1.getHours();
-    var greeting="";
-    if(time>=0&&time<=12)
-    greeting="Morning";
-    else if(time>=12&&time<=16)
-    greeting="Afternoon";
-    else
-    greeting="Evening";
-    res.render('about',{greet:greeting});
+    // var date1=new Date();
+    // var time=date1.getHours();
+    // var greeting="";
+    // if(time>=0&&time<=12)
+    // greeting="Morning";
+    // else if(time>=12&&time<=16)
+    // greeting="Afternoon";
+    // else
+    // greeting="Evening";
+    res.render('about');
 });
 app.get("/contact", function (req, res) {
     res.render('contact');

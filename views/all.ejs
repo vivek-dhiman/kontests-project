@@ -17,7 +17,7 @@
             <tr>
               <td scope="row" style="color:black"><%= count++; %> </td>
               <td style="color:yellow"><%= articles[i].name %> </td>
-              <td style="color:blue"> <%=new Date(articles[i].start_time).toString().substr(4,17).concat(" ","hrs") %> </td>
+              <td style="color:blue">  <%= new Date(articles[i].start_time).toLocaleString() %> </td>
               <td style="color:rgb(86, 221, 86)">
                 <% if((articles[i].duration)/3600>=24){ %>
                   <%= articles[i].duration/(3600*24)  %> days

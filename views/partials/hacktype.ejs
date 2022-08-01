@@ -1,4 +1,7 @@
 <div>
+  <% if(articles.length===0){ %>
+    <h3>The chosen platform has not any contest running now or in near future.</h3>  
+    <% } else { %>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -13,8 +16,8 @@
             <tr>
               <td scope="row" style="color:black"><%= i+1 %> </td>
               <td style="color:yellow"><%= articles[i].name %> </td>
-              <td style="color:blue"> <%=new Date(articles[i].start_time).toString().substr(4,17).concat(" ","hrs") %> </td>
-              <td style="color:rgb(86, 221, 86)"><%= new Date(articles[i].end_time).toString().substr(4,17).concat(" ","hrs") %> </td>
+              <td style="color:blue">  <%= new Date(articles[i].start_time).toLocaleString() %> </td>
+              <td style="color:rgb(86, 221, 86)"> <%= new Date(articles[i].end_time).toLocaleString() %> </td>
               <td>
               <% if(articles[i].status=="CODING" ){ %>
                 <center><button onclick="location.href = '<%= articles[i].url %>';" type="submit"
@@ -29,6 +32,6 @@
             <% } %>
         
       </table>
-      
+      <% } %> 
     
   </div>

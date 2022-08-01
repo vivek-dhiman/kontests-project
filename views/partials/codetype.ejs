@@ -1,4 +1,7 @@
 <div>
+  <% if(articles.length===0){ %>
+  <h3>The chosen platform has not any contest running now or in near future.</h3>  
+  <% } else { %>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -9,7 +12,7 @@
         <th scope="col" class="ink">Contest Link</th>
       </tr>
     </thead><% var c=0;%>
-    <% for (var i=articles.length-1; i >0; i-- ) { %>
+    <% for (var i=articles.length-1; i >=0; i-- ) { %>
       <% if(articles[i].duration/(3600*24)<=5){ %> 
       <tr>
         <td scope="row" style="color:black">
@@ -19,7 +22,7 @@
           <%= articles[i].name %>
         </td>
         <td style="color:blue">
-          <%= new Date(articles[i].start_time).toString().substr(4,17).concat(" ","hrs") %>
+        <%= new Date(articles[i].start_time).toLocaleString() %>
         </td>
         <td style="color:rgb(86, 221, 86)">
           <% if((articles[i].duration)/3600>=24){ %>
@@ -47,6 +50,6 @@
       <% }} %>
 
   </table>
+  <% } %> 
   <h4></h4>
-
 </div>
