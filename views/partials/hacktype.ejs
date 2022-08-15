@@ -1,37 +1,51 @@
 <div>
   <% if(articles.length===0){ %>
-    <h3>The chosen platform has not any contest running now or in near future.</h3>  
+    <h3>The chosen platform has not any contest running now or in near future.</h3>
     <% } else { %>
-    <table class="table table-bordered">
+      <table class="table table-bordered">
         <thead>
-        <tr>
-          <th scope="col" class="ink">Sr. No.</th>
-          <th scope="col" class="ink">Contest Name</th>
-          <th scope="col" class="ink">Start Time</th>
-          <th scope="col" class="ink">End Time</th>
-          <th scope="col" class="ink">Contest Link</th>
-        </tr>
+          <tr>
+            <th scope="col" class="ink">Sr. No.</th>
+            <th scope="col" class="ink">Contest Name</th>
+            <th scope="col" class="ink">Start Time</th>
+            <th scope="col" class="ink">End Time</th>
+            <th scope="col" class="ink">Contest Link</th>
+          </tr>
         </thead>
-          <% for (var i =0; i <articles.length;  i++ ) { %>
-            <tr>
-              <td scope="row" style="color:black"><%= i+1 %> </td>
-              <td style="color:yellow"><%= articles[i].name %> </td>
-              <td style="color:blue">  <%= new Date(articles[i].start_time).toLocaleString() %> </td>
-              <td style="color:rgb(86, 221, 86)"> <%= new Date(articles[i].end_time).toLocaleString() %> </td>
-              <td>
+        <% for (var i=0; i <articles.length; i++ ) { %>
+          <tr>
+            <td scope="row" style="color:black">
+              <%= i+1 %>
+            </td>
+            <td style="color:yellow">
+              <%= articles[i].name %>
+            </td>
+            <td style="color:blue">
+              <%= new
+                Date(articles[i].start_time).toLocaleString(undefined,{dateStyle:"medium",timezone:"Asia/Kolkata",timeStyle:"short"})
+                %>
+            </td>
+            <td style="color:rgb(86, 221, 86)">
+              <%= new
+                Date(articles[i].end_time).toLocaleString(undefined,{dateStyle:"medium",timezone:"Asia/Kolkata",timeStyle:"short"})
+                %>
+            </td>
+            <td>
               <% if(articles[i].status=="CODING" ){ %>
                 <center><button onclick="location.href = '<%= articles[i].url %>';" type="submit"
-                    class="btn btn-outline-dark d-btn"  style="font-weight:bold;color: white;">Participate Now</button></center>
+                    class="btn btn-outline-dark d-btn" style="font-weight:bold;color: white;">Participate Now</button>
+                </center>
             </td>
             <%} else{%>
               <center> <button onclick="location.href = '<%= articles[i].url %>';" type="submit"
-                class="btn btn-outline-dark d-btn btn-block"  style="font-weight:bold;color: white;">Visit Now</button></center>
+                  class="btn btn-outline-dark d-btn btn-block" style="font-weight:bold;color: white;">Visit Now</button>
+              </center>
               </td>
               <%}%>
-            </tr>
-            <% } %>
-        
+          </tr>
+          <% } %>
+
       </table>
-      <% } %> 
-    
-  </div>
+      <% } %>
+
+</div>
